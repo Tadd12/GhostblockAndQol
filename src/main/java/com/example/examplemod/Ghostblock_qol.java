@@ -41,7 +41,7 @@ public class Ghostblock_qol
 		MinecraftForge.EVENT_BUS.register(new AutoCallTerm());
 		ClientCommandHandler.instance.registerCommand(new AutoCallTermCommand());
 
-		keyBindings[0] = new KeyBinding("Ghost Block Bind", 34, "Ghostblocking be like");
+		keyBindings[0] = new KeyBinding("Ghost Block Bind", 34, "Ghostblock and Qol");
 		for (KeyBinding keyBinding : keyBindings)
 			ClientRegistry.registerKeyBinding(keyBinding);
 	}
