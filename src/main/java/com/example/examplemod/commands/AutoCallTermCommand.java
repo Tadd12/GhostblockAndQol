@@ -32,7 +32,7 @@ public class AutoCallTermCommand extends CommandBase{
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) throws CommandException {
 		Util u = new Util();
-		if(args.length > 1) {
+		if(args.length > 2) {
 			u.addMessage(sender, "/act [s1, 2b, 2t, 3, 4]", EnumChatFormatting.DARK_RED);
 		}
 		if(args.length == 0) {
@@ -42,12 +42,21 @@ public class AutoCallTermCommand extends CommandBase{
 			} else {
 				u.addMessage(sender, "ACT disabled", EnumChatFormatting.RED);
 			}
+		} else if(args.length == 2) {
+			if(args[0].equalsIgnoreCase("members")) {
+				try {
+					ConfigHandler.MEMBERCOUNT = Integer.parseInt(args[1]);
+				} catch (Exception e) {
+					
+				}
+			}
 		} else {
 			args[0] = args[0].toLowerCase();
 			if(args[0].contentEquals("help")) {
 				u.addMessage(sender, "ACT Help:", EnumChatFormatting.GREEN);
 				u.addMessage(sender, "- /act to toggle", EnumChatFormatting.GREEN);
 				u.addMessage(sender, "- /act [s1, 2b, 2t, 3, 4] to set the Terminal", EnumChatFormatting.GREEN);
+				u.addMessage(sender, "- /act members [2-5]", EnumChatFormatting.GREEN);
 				u.addMessage(sender, "- /act help to show this", EnumChatFormatting.GREEN);
 				return;
 			}

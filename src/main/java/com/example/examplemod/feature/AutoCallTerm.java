@@ -13,7 +13,7 @@ public class AutoCallTerm {
 		String Message = event.message.getUnformattedText();
 		if(ConfigHandler.ACT) {
 			if(Message.contains("Dungon Finder") || Message.contains("joined the")) {
-				Ghostblock_qol.player.sendChatMessage("/pl");
+				Ghostblock_qol.mc.thePlayer.sendChatMessage("/pl");
 			}
 			if(Message.contains("Party Members (")) {
 				int members = 0;
@@ -23,7 +23,7 @@ public class AutoCallTerm {
 						break;
 					} catch(Exception e) {}
 				}
-				if(members == 2 && SkyblockLocation.inDungeonHub) {
+				if(members == ConfigHandler.MEMBERCOUNT && SkyblockLocation.inDungeonHub) {
 					String term = "";
 					switch(ConfigHandler.TERMINAL) {
 					case 1:
@@ -46,7 +46,7 @@ public class AutoCallTerm {
 						try {
 							Thread.sleep(100);
 						} catch (InterruptedException e) {}
-						Ghostblock_qol.player.sendChatMessage("/pc " + term);
+						Ghostblock_qol.mc.thePlayer.sendChatMessage("/pc " + term);
 					}
 				}
 			}
